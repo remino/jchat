@@ -1,7 +1,7 @@
 <template lang="pug">
-  div
-    h1
-      nuxt-link(to="/about/") {{ greeting }}
+div
+  h1
+    nuxt-link(to="/about/") {{ greeting }}
 </template>
 
 <style lang="stylus" scoped>
