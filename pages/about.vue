@@ -1,6 +1,5 @@
 <template lang="pug">
-  div
-    nuxt-link(to="/about") {{ greeting }}
+  div {{ greeting }}
 </template>
 
 <style lang="stylus" scoped>
@@ -11,5 +10,5 @@ div
 <script lang="coffee">
 export default
   data: ->
-    greeting: 'hello'
+    greeting: 'how are you?'
 </script>
