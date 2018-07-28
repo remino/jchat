@@ -1,10 +1,13 @@
 <template lang="pug">
-  div {{ greeting }}
+  div
+    h1 {{ greeting }}
+    nuxt-link(to="/") I'm fine. Thanks!
 </template>
 
 <style lang="stylus" scoped>
-div
+h1
   font-size 3em
+  font-weight normal
 </style>
 
 <script lang="coffee">
