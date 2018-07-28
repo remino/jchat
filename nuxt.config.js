@@ -35,5 +35,27 @@ module.exports = {
   //     }
   //   }
   // }
+  generate: {
+    minify: {
+      collapseBooleanAttributes: true,
+      collapseWhitespace: true,
+      decodeEntities: true,
+      minifyCSS: true,
+      minifyJS: true,
+      processConditionalComments: true,
+      removeAttributeQuotes: false,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeOptionalTags: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeTagWhitespace: true,
+      sortAttributes: true,
+      sortClassName: false,
+      trimCustomFragments: true,
+      useShortDoctype: true,
+    }
+  }
 }
 
