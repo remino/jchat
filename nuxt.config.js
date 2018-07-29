@@ -1,2 +1,2 @@
-require('coffeescript/register')
-module.exports = require('./nuxt.config.coffee')
+require('coffeescript/register');
+module.exports = require('./nuxt.config.coffee');
