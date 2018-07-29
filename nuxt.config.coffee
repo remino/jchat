@@ -1,4 +1,8 @@
 module.exports =
+  css: [
+    '~/assets/app.styl'
+  ]
+
   head:
     title: 'rmn'
 
@@ -25,6 +29,8 @@ module.exports =
   ]
 
   build:
+    extractCSS: true
+
     extend: (config) ->
       config.module = {} unless config.module
       config.module.rules = [] unless config.module.rules
@@ -62,3 +68,7 @@ module.exports =
   render:
     gzip:
       level: 9
+
+    bundleRenderer:
+      shouldPreload: (file, type) ->
+        ['script', 'style', 'font'].includes type
