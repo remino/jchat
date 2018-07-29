@@ -15,6 +15,29 @@ module.exports =
   loading:
     color: '#3B8070'
 
+  markdownit:
+    preset: 'default'
+    linkify: true
+    breaks: true
+
+  modules: [
+    '@nuxtjs/markdownit'
+  ]
+
+  build:
+    extend: (config) ->
+      config.module = {} unless config.module
+      config.module.rules = [] unless config.module.rules
+      config.resolve = [] unless config.resolve
+
+      config.module.rules.push
+        test: /\.coffee$/,
+        loader: [ 'coffee-loader' ]
+
+      config.resolve.extensions.push '.coffee'
+
+      return
+
   generate:
     minify:
       collapseBooleanAttributes: true

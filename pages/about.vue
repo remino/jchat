@@ -1,7 +1,7 @@
-<template lang="pug">
-  div
-    h1 {{ greeting }}
-    nuxt-link(to="/") I'm fine. Thanks!
+<template lang="md">
+# {{ greeting }}
+
+[I'm fine. Thanks!](/)
 </template>
 
 <style lang="stylus" scoped>
@@ -11,7 +11,9 @@ h1
 </style>
 
 <script lang="coffee">
-export default
+import md from '~/common/md'
+
+export default Object.assign md,
   data: ->
     greeting: 'how are you?'
 </script>
