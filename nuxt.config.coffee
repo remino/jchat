@@ -30,7 +30,7 @@ module.exports =
       removeRedundantAttributes: true
       removeScriptTypeAttributes: true
       removeStyleLinkTypeAttributes: true
-      removeTagWhitespace: true
+      removeTagWhitespace: false
       sortAttributes: true
       sortClassName: false
       trimCustomFragments: true
