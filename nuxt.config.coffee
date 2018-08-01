@@ -3,6 +3,9 @@ module.exports =
     '~/assets/app.styl'
   ]
 
+  router:
+    base: '/template.dark/'
+
   head:
     title: 'rmn'
 
