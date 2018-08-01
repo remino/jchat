@@ -1,6 +1,4 @@
 module.exports =
-  plugins: ['~/plugins/i18n.js']
-
   css: [
     '~/assets/app.styl'
   ]
@@ -25,9 +23,6 @@ module.exports =
     preset: 'default'
     linkify: true
     breaks: true
-
-  router:
-    middleware: 'i18n'
 
   modules: [
     '@nuxtjs/markdownit'
@@ -73,8 +68,6 @@ module.exports =
       sortClassName: false
       trimCustomFragments: true
       useShortDoctype: true
-
-    routes: ['/', '/about', '/fr', '/fr/about']
 
   render:
     gzip:
