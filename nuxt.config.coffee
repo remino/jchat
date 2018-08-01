@@ -4,7 +4,7 @@ module.exports =
   ]
 
   router:
-    base: '/template.dark/'
+    base: '/template.light/'
 
   head:
     title: 'rmn'
