@@ -42,6 +42,10 @@ module.exports =
       config.resolve = [] unless config.resolve
 
       config.module.rules.push
+        test: /\.styl(us)?$/
+        use: [ 'stylus-loader' ]
+
+      config.module.rules.push
         test: /\.coffee$/,
         loader: [ 'coffee-loader' ]
 
