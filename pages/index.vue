@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  h1 template.dark
+  h1 template.light
 </template>
 
 <style lang="stylus" scoped>
