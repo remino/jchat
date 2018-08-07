@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  h1 template.light
+  h1 jchat
 </template>
 
 <style lang="stylus" scoped>

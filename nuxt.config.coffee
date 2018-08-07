@@ -4,10 +4,10 @@ module.exports =
   ]
 
   router:
-    base: '/template.light/'
+    base: '/jchat/'
 
   head:
-    title: 'rmn'
+    title: 'jchat'
 
     meta: [
       { charset: 'utf-8' }

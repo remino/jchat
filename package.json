@@ -1,7 +1,7 @@
 {
-  "name": "remino.net",
+  "name": "jchat",
   "version": "1.0.0",
-  "description": "RÉMINO",
+  "description": "Japanese chat simulator",
   "author": "Remi Remino <remi@remino.net>",
   "private": true,
   "scripts": {
