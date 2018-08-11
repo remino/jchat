@@ -1,13 +1,12 @@
 <template lang="pug">
-div
-  h1 jchat
+chat-frame
 </template>
 
-<style lang="stylus" scoped>
-h1
-  font-size: 3em
-  font-weight: normal
-</style>
-
 <script lang="coffee">
+import ChatFrame from '~/components/ChatFrame'
+
+export default
+  components: {
+    ChatFrame
+  }
 </script>

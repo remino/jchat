@@ -1,24 +1,44 @@
 @require init
 
 a
-  color: color.link
+  color: colors.link
+
+body, html, main, #__nuxt, #__layout
+  height: 100%
+  width: 100%
+
+body, html
+  box-sizing: border-box
+  margin: 0
 
 body
   align-items: center
-  background: color.bg
-  color: color.fg
+  background: colors.bg
+  color: colors.fg
   display: flex
   flex-flow: column nowrap
   font-family: font.base
   font-size: 1em
   justify-content: center
-  padding 4ex 2em
+  line-height: 1.5
+  min-height: 100%
 
-body, html
+button, input, select, textarea
+  appearance: none
+  background: inherit
+  border-radius: 0.5em
   box-sizing: border-box
-  margin: 0
-  height: 100%
-  width: 100%
+  color: inherit
+  font-size: 1em
+  height: 2em
+  line-height: inherit
+
+  &:disabled
+    opacity: 0.5
+    pointer-events: none
+
+  &:focus
+    outline: none
 
 html
   font-size: font.size

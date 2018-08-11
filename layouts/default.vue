@@ -1,7 +1,4 @@
 <template lang="pug">
-  div
+  main
     nuxt
 </template>
-
-<style lang="stylus">
-</style>
