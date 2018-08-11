@@ -56,6 +56,7 @@ export default
       {
         id: 1
         content: 'Hello'
+        loaded: true
       }
     ]
 

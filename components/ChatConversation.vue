@@ -1,21 +1,11 @@
 <template lang="pug">
 article
   ul
-    li(v-for="msg in msgs" :class="classesFor(msg)" :key="msg.id")
-      | {{ msg.content }}
+    chat-message(v-for="msg in msgs" :key="msg.id" :message="msg")
 </template>
 
 <style lang="stylus" scoped>
 @import '../assets/init'
-
-@keyframes fade-in
-  0%
-    transform: translateY(4ex)
-    opacity: 0
-
-  100%
-    transform: translateY(0)
-    opacity: 1
 
 article
   align-items: stretch
@@ -30,15 +20,8 @@ li, ul
   padding: 0
 
 li
-  animation: fade-in 0.25s linear
-  background-color: colors.gray-light
-  padding: 1ex (padding-h / 2)
-  border-radius: 0.5em
-  margin: 0 10% 0 0
-  will-change: opacity transform
-
   + li
-    margin-top: 1ex
+    margin-top: 0.5em
 
 ul
   align-items: flex-start
@@ -48,18 +31,16 @@ ul
   margin: 0 auto
   max-width: max-width
   width: 100%
-
-.msg
-  &--me
-    align-self: flex-end
-    background-color: colors.primary
-    color: colors.bg
-    margin-left: 10%
-    margin-right: 0
 </style>
 
 <script lang="coffee">
+import ChatMessage from '~/components/ChatMessage'
+
 export default
+  components: {
+    ChatMessage
+  }
+
   props:
     msgs:
       default: []
@@ -70,9 +51,6 @@ export default
       @scrollToBottom()
 
   methods:
-    classesFor: (msg) ->
-      'msg--me' if msg.from is 'me'
-
     scrollToBottom: ->
       self = window
       posY = self.document.body.clientHeight

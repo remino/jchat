@@ -1,14 +1,18 @@
 colors = {
   bg: #fff
-  button-hover: #36c
   gray: #ccc
   gray-dark: #999
   gray-light: #eee
   fg: #000
-  link: lightblue // #add8e6
   primary: #69f
-  primary-darker: #36c
 }
+
+colors['gray-dark'] = darken(colors.gray, 20%)
+colors['gray-light'] = lighten(colors.gray, 20%)
+colors['link'] = lighten(colors.primary, 30%)
+colors['primary-darker'] = darken(colors.primary, 20%)
+
+colors['button-hover'] = colors.button-hover
 
 font = {
   base: sans-serif
