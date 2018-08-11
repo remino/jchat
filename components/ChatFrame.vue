@@ -1,5 +1,5 @@
 <template lang="pug">
-section
+section.frame
   chat-welcome.welcome
   chat-controls.controls(@new-msg="newMsg")
   chat-conversation.conversation(:msgs="msgs")
@@ -7,14 +7,6 @@ section
 
 <style lang="stylus" scoped>
 @import '../assets/init'
-
-section
-  align-items: stretch
-  display: flex
-  flex-flow: column nowrap
-  justify-content: center
-  min-height: 100%
-  width: 100%
 
 .controls, .conversation
   box-sizing: border-box
@@ -34,6 +26,14 @@ section
 
   flex-grow: 1
   padding: padding-top padding-h padding-bottom
+
+.frame
+  align-items: stretch
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  min-height: 100%
+  width: 100%
 
 .welcome
   flex-shrink: 1

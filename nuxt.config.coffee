@@ -25,7 +25,7 @@ module.exports =
   markdownit:
     preset: 'default'
     linkify: true
-    breaks: true
+    breaks: false
 
   modules: [
     '@nuxtjs/markdownit'
