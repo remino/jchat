@@ -1,5 +1,6 @@
 <template lang="pug">
 section
+  chat-welcome.welcome
   chat-controls.controls(@new-msg="newMsg")
   chat-conversation.conversation(:msgs="msgs")
 </template>
@@ -8,7 +9,11 @@ section
 @import '../assets/init'
 
 section
-  height: 100%
+  align-items: stretch
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  min-height: 100%
   width: 100%
 
 .controls, .conversation
@@ -27,20 +32,23 @@ section
   padding-top = 2ex
   padding-bottom = controls-height + padding-top
 
-  min-height: 100%
+  flex-grow: 1
   padding: padding-top padding-h padding-bottom
-  width: 100%
-  z-index: 1
+
+.welcome
+  flex-shrink: 1
 </style>
 
 <script lang="coffee">
 import ChatControls from '~/components/ChatControls'
 import ChatConversation from '~/components/ChatConversation'
+import ChatWelcome from '~/components/ChatWelcome'
 
 export default
   components: {
     ChatControls,
-    ChatConversation
+    ChatConversation,
+    ChatWelcome
   }
 
   data: ->
