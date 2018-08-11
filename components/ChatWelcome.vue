@@ -18,7 +18,7 @@ Go ahead! Have a chat! Have a _JChat!_
 
 h1, p
   margin: 1.5rem auto
-  max-width: 50rem
+  max-width: max-width
 
 h1
   color: colors.primary-darker

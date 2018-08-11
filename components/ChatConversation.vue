@@ -34,17 +34,20 @@ li
   background-color: colors.gray-light
   padding: 1ex (padding-h / 2)
   border-radius: 0.5em
-  margin: 1ex 10% 0 0
+  margin: 0 10% 0 0
   will-change: opacity transform
 
   + li
     margin-top: 1ex
 
 ul
+  align-items: flex-start
   display: flex
   flex-flow: column nowrap
-  align-items: flex-start
   justify-content: flex-start
+  margin: 0 auto
+  max-width: max-width
+  width: 100%
 
 .msg
   &--me

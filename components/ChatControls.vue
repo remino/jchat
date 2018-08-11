@@ -1,22 +1,19 @@
 <template lang="pug">
 form(@submit.prevent="sendMsg")
-  label
-    input#msg(autofocus type="text" v-model="msg")
+  .fieldset
+    label
+      input#msg(autofocus type="text" v-model="msg")
 
-  label
-    input(type="submit" value="Send" :disabled="disabled")
+    label
+      input(type="submit" value="Send" :disabled="disabled")
 </template>
 
 <style lang="stylus" scoped>
 @import '../assets/init'
 
 form
-  align-items: center
   border-top: solid 1px colors.gray
-  display: flex
   height: 100%
-  flex-flow: row nowrap
-  justify-content: flex-start
   padding: 0 padding-h
 
 input
@@ -25,6 +22,8 @@ input
 
   &[type=submit]
     background-color: colors.primary
+    border-bottom-left-radius: 0
+    border-top-left-radius: 0
     border: none
     color: colors.bg
     cursor: pointer
@@ -36,6 +35,8 @@ input
 
   &[type=text]
     border: solid 1px colors.gray
+    border-bottom-right-radius: 0
+    border-top-right-radius: 0
 
     &:focus, &:hover
       border-color: colors.gray-dark
@@ -47,8 +48,16 @@ label
   &:last-child
     flex-shrink: 1
 
-  + label
-    padding-left: (padding-h / 4)
+.fieldset
+  align-items: center
+  border: 0
+  display: flex
+  flex-flow: row nowrap
+  height: 100%
+  justify-content: flex-start
+  margin: 0 auto
+  max-width: max-width
+  padding: 0
 </style>
 
 <script lang="coffee">

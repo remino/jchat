@@ -21,7 +21,7 @@ section.frame
   z-index: 10
 
 .conversation
-  padding-top = 2ex
+  padding-top = 1.5rem
   padding-bottom = controls-height + padding-top
 
   flex-grow: 1
