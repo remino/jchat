@@ -1,7 +1,7 @@
 <template lang="pug">
 section.frame
   chat-welcome.welcome
-  chat-controls.controls(@new-msg="newMsg")
+  chat-controls.controls(@new-msg="newMsg" :disabled="controlsDisabled")
   chat-conversation.conversation(:msgs="msgs")
 </template>
 
@@ -52,6 +52,8 @@ export default
   }
 
   data: ->
+    controlsEnabled: true,
+
     msgs: [
       {
         id: 1
@@ -60,14 +62,21 @@ export default
       }
     ]
 
+  computed:
+    controlsDisabled: -> !@controlsEnabled
+
   methods:
     newMsg: (msg) ->
       return unless msg.length > 0
 
       newId = @msgs.length + 1
 
+      @controlsEnabled = false
+
       @msgs.push
         id: newId
         content: msg
         from: 'me'
+
+      window.setTimeout (=> @controlsEnabled = true), 5000
 </script>

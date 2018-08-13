@@ -62,12 +62,20 @@ label
 
 <script lang="coffee">
 export default
+  props:
+    disabled:
+      default: false
+      type: Boolean
+
   data: ->
     msg: ''
 
   computed:
     disabled: -> !@enabled
-    enabled: -> @msg.length > 0
+
+    enabled: ->
+      return false if @$props.disabled
+      @msg.length > 0
 
   methods:
     sendMsg: ->
