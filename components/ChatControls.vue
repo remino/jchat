@@ -1,8 +1,8 @@
 <template lang="pug">
-form(@submit.prevent="sendMsg")
+form(@submit.prevent="sendMessage")
   .fieldset
     label
-      input#msg(autofocus type="text" v-model="msg")
+      input(autofocus type="text" v-model="message")
 
     label
       input(type="submit" value="Send" :disabled="disabled")
@@ -68,17 +68,17 @@ export default
       type: Boolean
 
   data: ->
-    msg: ''
+    message: ''
 
   computed:
     disabled: -> !@enabled
 
     enabled: ->
       return false if @$props.disabled
-      @msg.length > 0
+      @message.length > 0
 
   methods:
-    sendMsg: ->
-      @$emit 'new-msg', @msg
-      @msg = ''
+    sendMessage: ->
+      @$emit 'new-message', @message
+      @message = ''
 </script>

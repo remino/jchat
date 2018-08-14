@@ -1,7 +1,11 @@
 <template lang="pug">
 article
   ul
-    chat-message(v-for="msg in msgs" :key="msg.id" :message="msg")
+    chat-message(
+      v-for="message in messages"
+      :key="message.id"
+      :message="message"
+    )
 </template>
 
 <style lang="stylus" scoped>
@@ -42,12 +46,12 @@ export default
   }
 
   props:
-    msgs:
+    messages:
       default: []
       type: Array
 
   watch:
-    msgs: ->
+    messages: ->
       @scrollToBottom()
 
   methods:

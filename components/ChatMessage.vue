@@ -33,14 +33,7 @@ li
   margin: 0 10% 0 0
   will-change: opacity transform
 
-.msg
-  &--me
-    align-self: flex-end
-    background-color: colors.primary
-    color: colors.bg
-    margin-left: 10%
-    margin-right: 0
-
+.jchat__message
   &--loading
     span
       display: none
@@ -54,6 +47,13 @@ li
       opacity: 0.5
       vertical-align: middle
       will-change: transform
+
+  &--user
+    align-self: flex-end
+    background-color: colors.primary
+    color: colors.bg
+    margin-left: 10%
+    margin-right: 0
 </style>
 
 <script lang="coffee">
@@ -70,17 +70,16 @@ export default
     window.setTimeout (=> @loading = false), 5000
 
   computed:
+    isFromUser: -> @message.sender is 'user'
+
     classes: ->
       [ @senderClass, @loadingClass ]
 
     loadingClass: ->
-      return if @me
-      'msg--loading' if @loading
-
-    me: ->
-      @message.from is 'me'
+      return if @isFromUser
+      'jchat__message--loading' if @loading
 
     senderClass: ->
-      return 'msg--me' if @me
-      'msg--other'
+      return 'jchat__message--user' if @isFromUser
+      'jchat__message--bot'
 </script>
