@@ -59,6 +59,7 @@ export default
         id: 1
         content: 'Hello'
         loaded: true
+        sender: 'bot'
       }
     ]
 
@@ -66,17 +67,14 @@ export default
     controlsDisabled: -> !@controlsEnabled
 
   methods:
-    newMessage: (content) ->
+    newMessage: (content, sender = 'user') ->
       return unless content.length > 0
-
-      newId = @messages.length + 1
 
       @controlsEnabled = false
 
-      @messages.push
-        id: newId
-        content: content
-        sender: 'user'
+      id = @messages.length + 1
+
+      @messages.push { id, content, sender }
 
       window.setTimeout (=> @controlsEnabled = true), 5000
 </script>
