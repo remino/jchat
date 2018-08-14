@@ -40,6 +40,7 @@ section.frame
 </style>
 
 <script lang="coffee">
+import { userSays } from '~/common/bot'
 import ChatControls from '~/components/ChatControls'
 import ChatConversation from '~/components/ChatConversation'
 import ChatWelcome from '~/components/ChatWelcome'
@@ -70,11 +71,11 @@ export default
     newMessage: (content, sender = 'user') ->
       return unless content.length > 0
 
-      @controlsEnabled = false
+      if sender is 'user'
+        @controlsEnabled = false
+        window.setTimeout (=> @newMessage userSays(content), 'bot'), 2000
+        window.setTimeout (=> @controlsEnabled = true), 5000
 
       id = @messages.length + 1
-
       @messages.push { id, content, sender }
-
-      window.setTimeout (=> @controlsEnabled = true), 5000
 </script>

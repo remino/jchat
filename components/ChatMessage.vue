@@ -67,7 +67,7 @@ export default
     loading: if @message.loaded is true then false else true
 
   mounted: ->
-    window.setTimeout (=> @loading = false), 5000
+    window.setTimeout (=> @loading = false), 3000
 
   computed:
     isFromUser: -> @message.sender is 'user'
