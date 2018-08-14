@@ -5,7 +5,7 @@ form(@submit.prevent="sendMessage")
       input(autofocus type="text" v-model="message")
 
     label
-      input(type="submit" value="Send" :disabled="disabled")
+      input(type="submit" value="Send" :disabled="inputDisabled")
 </template>
 
 <style lang="stylus" scoped>
@@ -71,10 +71,10 @@ export default
     message: ''
 
   computed:
-    disabled: -> !@enabled
+    inputDisabled: -> !@inputEnabled
 
-    enabled: ->
-      return false if @$props.disabled
+    inputEnabled: ->
+      return false if @disabled
       @message.length > 0
 
   methods:
