@@ -39,7 +39,7 @@ li
       display: none
 
     &::after
-      animation: wave 1s ease-in 5
+      animation: wave 1s ease-in 3
       content: '···'
       display: inline-block
       font-size: 2rem

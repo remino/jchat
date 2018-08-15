@@ -76,7 +76,7 @@ export default
       @newMessage line, 'bot'
 
       if @botResponse.length
-        window.setInterval (=> @processBotResponse()), 3000
+        window.setTimeout (=> @processBotResponse()), 4000
         return
 
       window.setTimeout (=> @controlsEnabled = true), 3000
@@ -84,5 +84,5 @@ export default
     userSaid: (content) ->
       @botResponse = userSaid content
       return unless @botResponse && @botResponse.length
-      window.setInterval (=> @processBotResponse()), 2000
+      window.setTimeout (=> @processBotResponse()), 2000
 </script>
