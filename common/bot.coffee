@@ -1,7 +1,7 @@
 import getterSetter from '~/common/getter-setter'
 import BotResponse from '~/common/bot/bot-response'
 import UserMessage from '~/common/bot/user-message'
-import filler from '~/common/bot/filler'
+import { filler } from '~/common/bot/functions'
 import { whichWord } from '~/common/util'
 
 class Bot
