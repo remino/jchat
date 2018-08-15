@@ -58,5 +58,5 @@ export default
     scrollToBottom: ->
       self = window
       posY = self.document.body.clientHeight
-      @$nextTick (=> self.scrollTo 0, posY)
+      @$nextTick (=> self.scrollTo 0, posY + 10000)
 </script>

@@ -9,6 +9,9 @@ class Bot
 
   userMessageProperties: [
     'country'
+    'food'
+    'girls'
+    'negative'
     'japanese'
     'filler'
   ]
@@ -20,7 +23,7 @@ class Bot
       message = @userMessage = new UserMessage @content
 
       for property in @userMessageProperties
-        value = message[property]
+        value = !!message[property]
 
         if value
           response = new BotResponse property, message

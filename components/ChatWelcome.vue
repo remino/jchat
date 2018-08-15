@@ -1,5 +1,5 @@
 <template lang="md">
-# JChat
+# JChat <small>v0.1</small>
 
 Ever wanted to know how it is to go to be a foreigner in Japan, go to an
 "international" party mixing foreigners and locals, and have a chat with
@@ -8,7 +8,9 @@ of having incipid conversations? Here's your chance!
 
 Thanks to years of research in artificial intelligence, we bring you _JChat_,
 the Japanese chat simulator, with a bot emulating a typical Japanese person at
-an international party trying to practice their English on you.
+an international party trying to practice their English on you. Your virtual
+partner was modelled after a 42-year-old Japanese salaryman who never left Japan,
+trying to hit on 25-year-old foreign girls.
 
 Go ahead! Have a chat! Have a _JChat!_
 </template>
@@ -25,6 +27,11 @@ h1
   font-weight: 400
   font-size: 2em
   text-align: center
+
+  small
+    display: block
+    font-size: 0.4em
+    opacity: 0.5
 
 p
   text-indent: 1em
