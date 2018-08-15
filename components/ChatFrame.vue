@@ -40,7 +40,7 @@ section.frame
 </style>
 
 <script lang="coffee">
-import { userSays } from '~/common/bot'
+import { userSaid } from '~/common/bot'
 import ChatControls from '~/components/ChatControls'
 import ChatConversation from '~/components/ChatConversation'
 import ChatWelcome from '~/components/ChatWelcome'
@@ -85,9 +85,12 @@ export default
 
       if sender is 'user'
         @controlsEnabled = false
-        window.setTimeout (=> @newMessage userSays(content), 'bot'), 2000
-        window.setTimeout (=> @controlsEnabled = true), 5000
+        window.setTimeout (=> @userSaid content), 2000
 
       id = @messages.length + 1
       @messages.push { id, content, sender }
+
+    userSaid: (content) ->
+      @newMessage userSaid(content), 'bot'
+      window.setTimeout (=> @controlsEnabled = true), 5000
 </script>
