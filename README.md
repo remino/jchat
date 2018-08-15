@@ -1,8 +1,13 @@
-# nuxtthetux
+# JChat
 
-> Nuxt.js project
+Vapid Japanese small talk simulator.
+
+https://remino.github.io/jchat/  
+https://github.com/remino/jchat
 
 ## Build Setup
+
+This project is built on Nuxt.
 
 ``` bash
 # install dependencies
