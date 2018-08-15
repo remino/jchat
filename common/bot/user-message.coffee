@@ -1,7 +1,7 @@
 import countries from '~/common/countries'
 import getterSetter from '~/common/getter-setter'
 import { hasJaChar } from '~/common/util'
-import { getCountryCode } from '~/common/bot/functions'
+import getCountryCode from '~/common/bot/get-country-code'
 
 class UserMessage
   { getter, setter } = getterSetter @

@@ -2,7 +2,7 @@ import sample from 'lodash.sample'
 import camelCase from 'lodash.camelcase'
 import getterSetter from '~/common/getter-setter'
 import strings from '~/common/strings'
-import { filler } from '~/common/bot/functions'
+import filler from '~/common/bot/filler'
 
 class BotResponse
   { getter, setter } = getterSetter @
