@@ -1,16 +1,23 @@
 import camelCase from 'lodash.camelcase'
 import sample from 'lodash.sample'
+import countries from './countries'
 import getterSetter from './getterSetter'
 import { hasJaChar, hasWord, tokenReplace, whichWord } from './strings'
 
-countries = [
-  'canada'
-  'usa'
-]
-
 strings =
-  country: 'you are from {{country}}!'
   jaSoGood: 'wow! your japanese is SO GOOD!'
+
+  countries:
+    ca: [
+      'wow! CANADA! when i think of CANADA, i think about ネイチャー'
+      'i went to VANCOUVER!'
+      'i like オーロラ'
+    ]
+
+    us: [
+      'i love NEW YORK!'
+      'i like hiphop!'
+    ]
 
   fillerWords: [
     'え〜〜'
@@ -20,6 +27,13 @@ strings =
     '面白いね'
     'i see'
     'ah'
+  ]
+
+  questions: [
+    'do you like EDAMAME?'
+    'do you like NATTO?'
+    'can you use CHOPSTICKS?'
+    ''
   ]
 
 class Bot
@@ -60,11 +74,18 @@ class BotResponse
 
   getter 'forFiller', -> filler()
   getter 'getterMethod', -> camelCase "for_#{@kind}"
-  getter 'get', -> @[@getterMethod]
+  getter 'nextQuestion', -> sample strings.questions
 
   getter 'forCountry', ->
-    tokenReplace strings.country,
-      country: @userContent.toUpperCase()
+    response = sample strings.countries[@userMessage.countryCode]
+    question = @nextQuestion
+    [response, question]
+
+  getter 'get', ->
+    response = @[@getterMethod]
+    response = @forFiller unless response && response.length
+    response = [response].filter((v) => v) unless response instanceof Array
+    response
 
 class UserMessage
   { getter, setter } = getterSetter @
@@ -73,15 +94,16 @@ class UserMessage
 
   constructor: (@content) ->
 
-  getter 'country', -> getCountry @content
+  getter 'country', -> countries.nameForCode @countryCode
+  getter 'countryCode', -> getCountryCode @content
   getter 'japanese', -> hasJaChar @content
 
 bot = new Bot
 
 filler = -> sample strings.fillerWords
 
-getCountry = (str) ->
-  whichWord str, countries
+getCountryCode = (str) ->
+  countries.codes[whichWord str, Object.keys(countries.codes)]
 
 userSaid = (content) -> bot.userSaid content
 

@@ -53,7 +53,8 @@ export default
   }
 
   data: ->
-    controlsEnabled: true,
+    botResponse: []
+    controlsEnabled: true
 
   computed:
     controlsDisabled: -> !@controlsEnabled
@@ -61,16 +62,27 @@ export default
 
   methods:
     newMessage: (content, sender = 'user') ->
-      return unless content.length > 0
+      return unless content && content.length
 
       if sender is 'user'
         @controlsEnabled = false
-        window.setTimeout (=> @userSaid content), 2000
+        @userSaid content
 
       id = @messages.length + 1
       @$store.commit 'messages/add', { id, content, sender }
 
+    processBotResponse: ->
+      line = @botResponse.shift()
+      @newMessage line, 'bot'
+
+      if @botResponse.length
+        window.setInterval (=> @processBotResponse()), 3000
+        return
+
+      window.setTimeout (=> @controlsEnabled = true), 3000
+
     userSaid: (content) ->
-      @newMessage userSaid(content), 'bot'
-      window.setTimeout (=> @controlsEnabled = true), 5000
+      @botResponse = userSaid content
+      return unless @botResponse && @botResponse.length
+      window.setInterval (=> @processBotResponse()), 2000
 </script>
