@@ -19,8 +19,14 @@ export const state = () => (
       sender: 'bot',
     },
   ]
-)
+);
 
 export const mutations = {
-  add(state, message) { state.push(message) }
-}
+  add(state, message) { state.push(message) },
+
+  setLoaded(state, messageId) {
+    const index = state.findIndex(m => m.id === messageId);
+    const message = state[index];
+    if (message) message.loaded = true;
+  },
+};

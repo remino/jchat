@@ -60,17 +60,17 @@ li
 export default
   props:
     message:
-      default: {}
       type: Object
 
-  data: ->
-    loading: if @message.loaded is true then false else true
+      default:
+        loaded: false
 
   mounted: ->
-    window.setTimeout (=> @loading = false), 3000
+    window.setTimeout (=> @setLoaded()), 3000
 
   computed:
     isFromUser: -> @message.sender is 'user'
+    loading: -> !@message.loaded
 
     classes: ->
       [ @senderClass, @loadingClass ]
@@ -82,4 +82,8 @@ export default
     senderClass: ->
       return 'jchat__message--user' if @isFromUser
       'jchat__message--bot'
+
+  methods:
+    setLoaded: ->
+      @$store.commit 'messages/setLoaded', @message.id
 </script>

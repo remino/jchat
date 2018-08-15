@@ -69,7 +69,8 @@ export default
         @userSaid content
 
       id = @messages.length + 1
-      @$store.commit 'messages/add', { id, content, sender }
+      loaded = false
+      @$store.commit 'messages/add', { id, content, loaded, sender }
 
     processBotResponse: ->
       line = @botResponse.shift()
