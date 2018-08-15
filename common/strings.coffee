@@ -1,26 +1,31 @@
-hasJaChar = (str) ->
-  re = /[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]/
-  !!str.match re
+export default
+  jaSoGood: 'wow! your japanese is SO GOOD!'
 
-hasWord = (str, words) -> !!whichWord str, words
+  countries:
+    ca: [
+      'wow! CANADA! when i think of CANADA, i think about ネイチャー'
+      'i went to VANCOUVER!'
+      'i like オーロラ'
+    ]
 
-tokenReplace = (str, replacements) ->
-  modified = str
-  keys = Object.keys replacements
+    us: [
+      'i love NEW YORK!'
+      'i like hiphop!'
+    ]
 
-  for key in keys
-    token = "{{#{key}}}"
-    replacement = replacements[key]
-    modified = str.replace token, replacement
+  fillerWords: [
+    'え〜〜'
+    'そうですか'
+    'なるほど'
+    'ん〜'
+    '面白いね'
+    'i see'
+    'ah'
+  ]
 
-  modified
-
-whichWord = (str, words) ->
-  words = [words] unless words instanceof Array
-
-  for word in words
-    keyword = word.replace '\\', '\\\\'
-    re = RegExp "\\b#{keyword}\\b", 'i'
-    return word if str.match re
-
-export { hasJaChar, hasWord, tokenReplace, whichWord }
+  questions: [
+    'do you like EDAMAME?'
+    'do you like NATTO?'
+    'can you use CHOPSTICKS?'
+    ''
+  ]
