@@ -34,14 +34,20 @@ class Bot
   userSaid: (@content) ->
     return unless @content
 
-    message = @userMessage = new UserMessage @content
+    try
+      message = @userMessage = new UserMessage @content
 
-    for property in @userMessageProperties
-      value = message[property]
+      for property in @userMessageProperties
+        value = message[property]
 
-      if value
-        response = new BotResponse property, message
-        return response.get
+        if value
+          response = new BotResponse property, message
+          return response.get
+
+    catch error
+      console.error error
+      response = new BotResponse 'filler'
+      return response.get
 
 class BotResponse
   { getter, setter } = getterSetter @

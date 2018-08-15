@@ -55,29 +55,9 @@ export default
   data: ->
     controlsEnabled: true,
 
-    messages: [
-      {
-        id: 1
-        content: 'nice to meet you'
-        loaded: true
-        sender: 'bot'
-      }
-      {
-        id: 2
-        content: 'my name is TAKESHITAROU'
-        loaded: true
-        sender: 'bot'
-      }
-      {
-        id: 3
-        content: 'where from?'
-        loaded: true
-        sender: 'bot'
-      }
-    ]
-
   computed:
     controlsDisabled: -> !@controlsEnabled
+    messages: -> @$store.state.messages
 
   methods:
     newMessage: (content, sender = 'user') ->
@@ -88,7 +68,7 @@ export default
         window.setTimeout (=> @userSaid content), 2000
 
       id = @messages.length + 1
-      @messages.push { id, content, sender }
+      @$store.commit 'messages/add', { id, content, sender }
 
     userSaid: (content) ->
       @newMessage userSaid(content), 'bot'
